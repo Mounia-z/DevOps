@@ -47,7 +47,7 @@ jobs:
         with:
 #relative path to the place where source code with Dockerfile located
           context: ./database
-          tags: ${{secrets.DOCKERHUB_USERNAME}}/tp-devops-epf:epf:database
+          tags: ${{secrets.DOCKERHUB_USERNAME}}/tp-devops-epf:database
       - name: Build image and push httpd
 # DO the same for httpd
         uses: docker/build-push-action@v2
