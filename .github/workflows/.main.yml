@@ -43,7 +43,7 @@ jobs:
           tags: ${{secrets.DOCKERHUB_USERNAME}}/tp-devops-epf:simple-api
       - name: Build image and push database
 # DO the same for database
-        uses: docke/build-push-action@v2
+        uses: docker/build-push-action@v2
         with:
 #relative path to the place where source code with Dockerfile located
           context: ./database
