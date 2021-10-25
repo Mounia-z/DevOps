@@ -23,8 +23,11 @@ jobs:
         distribution: 'adopt'
         cache: maven
 #finally build your app with the latest command
-     - name: Build and test with Maven
-       run: mvn -B package --file simple-api/pom.xml
+     - name: Build and analyze
+       env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+       run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=Mounia-z_DevOps
 # define job to build and publish docker image
   build-and-push-docker-image:
     needs: build
